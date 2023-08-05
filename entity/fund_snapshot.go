@@ -1,21 +1,20 @@
 package entity
 
-import "time"
-
 type FundSnapshot struct {
 	Name          string
 	IMName        string
-	Type          string
+	Type          string //Protected, Money Market, Fixed Income, etc
 	TypeID        int
-	Category      string
-	CategoryID    int
+	IsIndex       bool //Index, conventional etc
+	IsETF         bool
+	IsSharia      bool
 	NAV           float64
 	DailyRR       float64
 	MonthlyRR     float64
 	YTDRR         float64
 	YearlyRR      float64
 	AUM           float64
-	AUMLastUpdate time.Time
+	AUMLastUpdate uint64
 	Units         float64
-	LastUpdate    time.Time
+	LastUpdate    uint64
 }

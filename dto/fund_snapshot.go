@@ -10,6 +10,7 @@ type PasardanaSnapshotResponse struct {
 	Type                 int     `json:"Type"`
 	IsSharia             bool    `json:"Sharia"`
 	IsETF                bool    `json:"ExchangeTradedFund"`
+	IsIndex              bool    `json:"Index"`
 	NAV                  float64 `json:"NetAssetValue"`
 	DailyReturn          float64 `json:"DailyReturn"`
 	WeeklyReturn         float64 `json:"WeeklyReturn"`
