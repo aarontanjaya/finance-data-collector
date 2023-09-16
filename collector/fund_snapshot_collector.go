@@ -19,8 +19,8 @@ type pasardanaSnapshotImpl struct {
 	url *url.URL
 }
 
-func NewPasardanaSnaphotCollector(address string) (FundSnapshotCollector, error) {
-	url, err := url.Parse(address)
+func NewPasardanaSnaphotCollector() (FundSnapshotCollector, error) {
+	url, err := url.Parse(PasardanaBaseURL)
 	if err != nil {
 		return nil, err
 	}

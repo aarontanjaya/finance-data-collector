@@ -10,7 +10,7 @@ import (
 )
 
 func main() {
-	c, err := collector.NewPasardanaSnaphotCollector("https://www.pasardana.id/api/")
+	c, err := collector.NewPasardanaSnaphotCollector()
 	if err != nil {
 		log.Fatalln(err)
 	}
