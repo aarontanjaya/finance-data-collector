@@ -22,6 +22,10 @@ const (
 	CatOthers
 )
 
+const (
+	SourceIdPasardana int = iota
+)
+
 func GetPasardanaMappedCategory(c int) int {
 	m := map[int]int{
 		PasardanaCatMix:    CatMix,
