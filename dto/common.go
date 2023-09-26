@@ -6,7 +6,7 @@ type PasardanaDataPoint struct {
 	Rate  float64 `json:"DailyReturn"`
 }
 
-type FundBenchmark struct {
+type PasardanaFundBenchmark struct {
 	Id   int                  `json:"Id"`
 	Name string               `json:"Name"`
 	Data []PasardanaDataPoint `json:"Data"`
