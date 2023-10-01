@@ -13,7 +13,7 @@ import (
 )
 
 type FundSnapshotCollector interface {
-	GetAll(entity.PasardanaPagination) ([]entity.FundSnapshot, error)
+	GetAll(entity.Pagination) ([]entity.FundSnapshot, error)
 	GetById(id int) (*entity.FundDetail, error)
 }
 
@@ -31,11 +31,12 @@ func NewPasardanaSnaphotCollector() (FundSnapshotCollector, error) {
 	}, nil
 }
 
-func (snp *pasardanaSnapshotImpl) GetAll(q entity.PasardanaPagination) ([]entity.FundSnapshot, error) {
+func (snp *pasardanaSnapshotImpl) GetAll(q entity.Pagination) ([]entity.FundSnapshot, error) {
 	var res []dto.PasardanaSnapshotResponse
 
 	u := snp.url.JoinPath("FundSearchResult/GetAll")
-	util.BuildURLQuery(u, q)
+	pdnPagination := MapPasardanaPagination(q)
+	util.BuildURLQuery(u, *pdnPagination)
 
 	resp, err := http.Get(u.String())
 	if err != nil {

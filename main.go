@@ -14,7 +14,7 @@ func main() {
 	if err != nil {
 		log.Fatalln(err)
 	}
-	q := entity.PasardanaPagination{
+	q := entity.Pagination{
 		Start:     1,
 		Length:    100,
 		SortField: "Name",
@@ -22,4 +22,8 @@ func main() {
 	}
 	res, err := c.GetAll(q)
 	fmt.Printf("result %v %s", util.PrettifyObject(res), err)
+
+	res1, err1 := c.GetById(1252)
+	fmt.Println(err1)
+	fmt.Println(util.PrettifyObject(res1))
 }

@@ -121,3 +121,13 @@ func MapPasardanaFundSnp(r []dto.PasardanaSnapshotResponse) ([]entity.FundSnapsh
 
 	return result, nil
 }
+
+func MapPasardanaPagination(p entity.Pagination) *entity.PasardanaPagination {
+	return &entity.PasardanaPagination{
+		Start:     p.Start,
+		Length:    p.Length,
+		SortField: p.SortField,
+		SortOrder: p.SortOrder,
+		KeyWord:   p.KeyWord,
+	}
+}
