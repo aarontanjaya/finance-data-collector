@@ -1,10 +1,9 @@
 package collector
 
 import (
-	"time"
-
 	"github.com/aarontanjaya/finance-data-collector/dto"
 	"github.com/aarontanjaya/finance-data-collector/entity"
+	util "github.com/aarontanjaya/finance-data-collector/utils"
 )
 
 func MapPasardanaFundDetail(r dto.PasardanaFundDetailResponse) (*entity.FundDetail, error) {
@@ -55,9 +54,8 @@ func MapPasardanaFundDetail(r dto.PasardanaFundDetailResponse) (*entity.FundDeta
 
 func MapPasardanaDataPoint(r []dto.PasardanaDataPoint) ([]entity.DataPoint, error) {
 	result := make([]entity.DataPoint, len(r))
-	loc, _ := time.LoadLocation("Asia/Jakarta")
 	for idx, item := range r {
-		date, err := time.ParseInLocation("2006-01-02T15:04:05", item.Date, loc)
+		date, err := util.ParseTimeInLocationOrDefault("2006-01-02T15:04:05", item.Date, "Asia/Jakarta")
 		if err != nil {
 			return nil, err
 		}
@@ -89,12 +87,12 @@ func MapPasardanaFundSnp(r []dto.PasardanaSnapshotResponse) ([]entity.FundSnapsh
 	result := make([]entity.FundSnapshot, len(r))
 
 	for idx, item := range r {
-		tAUM, err := time.Parse("2006-01-02T15:04:05", item.AUMLastUpdate)
+		tAUM, err := util.ParseTimeInLocationOrDefault("2006-01-02T15:04:05", item.AUMLastUpdate, "Asia/Jakarta")
 		if err != nil {
 			return nil, err
 		}
 
-		tUpdate, err := time.Parse("2006-01-02T15:04:05", item.LastUpdate)
+		tUpdate, err := util.ParseTimeInLocationOrDefault("2006-01-02T15:04:05", item.LastUpdate, "Asia/Jakarta")
 		if err != nil {
 			return nil, err
 		}
