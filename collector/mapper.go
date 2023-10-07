@@ -98,6 +98,8 @@ func MapPasardanaFundSnp(r []dto.PasardanaSnapshotResponse) ([]entity.FundSnapsh
 		}
 
 		result[idx] = entity.FundSnapshot{
+			Source:        SourceIdPasardana,
+			Id:            item.Id,
 			Name:          item.Name,
 			IMName:        item.IMName,
 			Type:          item.ConservativeCategory,

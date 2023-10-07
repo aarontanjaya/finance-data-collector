@@ -1,6 +1,8 @@
 package entity
 
 type FundSnapshot struct {
+	Source        int
+	Id            int
 	Name          string
 	IMName        string
 	Type          string //Protected, Money Market, Fixed Income, etc

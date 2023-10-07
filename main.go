@@ -22,8 +22,4 @@ func main() {
 	}
 	res, err := c.GetAll(q)
 	fmt.Printf("result %v %s", util.PrettifyObject(res), err)
-
-	res1, err1 := c.GetById(1252)
-	fmt.Println(err1)
-	fmt.Println(util.PrettifyObject(res1))
 }
