@@ -5,6 +5,7 @@ type FundSnapshot struct {
 	Id            int
 	Name          string
 	IMName        string
+	IMFee         string
 	Type          string //Protected, Money Market, Fixed Income, etc
 	TypeID        int
 	IsIndex       bool //Index, conventional etc

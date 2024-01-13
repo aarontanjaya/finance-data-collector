@@ -102,6 +102,7 @@ func MapPasardanaFundSnp(r []dto.PasardanaSnapshotResponse) ([]entity.FundSnapsh
 			Id:            item.Id,
 			Name:          item.Name,
 			IMName:        item.IMName,
+			IMFee:         item.IMFee,
 			Type:          item.ConservativeCategory,
 			TypeID:        -1,
 			IsIndex:       item.IsIndex,

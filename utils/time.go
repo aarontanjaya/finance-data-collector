@@ -4,9 +4,12 @@ import "time"
 
 func ParseTimeInLocationOrDefault(format string, date string, loc string) (*time.Time, error) {
 	var t *time.Time
-	l, err := time.LoadLocation("Asia/Jakarta")
+	l, err := time.LoadLocation(loc)
 	if err != nil {
-		return t, err
+		l, err = time.LoadLocation("Asia/Jakarta")
+		if err != nil {
+			return t, err
+		}
 	}
 
 	dt, err := time.ParseInLocation(format, date, l)
